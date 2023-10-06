@@ -1,14 +1,15 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 public abstract class Question{
     public String prompt;
     public ArrayList<String> choices = new ArrayList<>();
     protected boolean multiChoice;
 
+    //default constructor
     public Question(String prompt){
         this.prompt = prompt;
     }
 
+    // set choices for question
     public void setChoices(){
         // METHOD FOR ALLOWING USER TO INPUT CHOICES< NOT USING DURING SIMULATION PROCESS
         /*
@@ -29,14 +30,17 @@ public abstract class Question{
         choices.add("Orange");
     }
 
+    // get the choices
     public ArrayList<String> getChoices(){
         return choices;
     }
 
+    // return if multichoice question
     public boolean isMultiChoice(){
         return multiChoice;
     }
 
+    //tostring method
     public String toString(){
         String displayChoices = "";
         for(int i = 0; i < choices.size(); i++){

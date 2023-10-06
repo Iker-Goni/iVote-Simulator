@@ -1,9 +1,35 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class SimulationDriver {
+
+    // method for generating random answers for multichoice question 
+    public static int[] generateRandomIntArray() {
+        Random rand = new Random();
+        
+        int size = rand.nextInt(5) + 1;
+
+        ArrayList<Integer> uniqueIntegers = new ArrayList<>();
+
+        while (uniqueIntegers.size() < size) {
+            int randomNumber = rand.nextInt(5) + 1; 
+
+            if (!uniqueIntegers.contains(randomNumber)) {
+                uniqueIntegers.add(randomNumber);
+            }
+        }
+
+        int[] randomIntArray = new int[size];
+        for (int i = 0; i < size; i++) {
+            randomIntArray[i] = uniqueIntegers.get(i);
+        }
+
+        return randomIntArray;
+    }
     public static void main(String[] args){
         Random random = new Random();
 
+        // single choice object
         SingleChoiceQuestion question = new SingleChoiceQuestion("Favorite Color?");
         question.setChoices();
 
@@ -91,8 +117,11 @@ public class SimulationDriver {
         student20.setAnswer(question, (int) (Math.random() * 4) + 1);
         favoriteColor.recordAnswer(student20);
 
+        // show the stats for each question
         favoriteColor.showStats();
+        
 
+        // multichoice question object
         MultiChoiceQuestion question2 = new MultiChoiceQuestion("Which animals do you like");
         question2.setChoices();
 
@@ -101,77 +130,86 @@ public class SimulationDriver {
         coolAnimals.displayQuestion();
 
         Student student21 = new Student("0021");
-        student21.setAnswer(question2, 1, 2, 3); // Student 21 chooses 1, 2, and 3
+        student21.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student21);
         
         Student student22 = new Student("0022");
-        student22.setAnswer(question2, 2, 3, 4); // Student 22 chooses 2, 3, and 4
+        student22.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student22);
         
         Student student23 = new Student("0023");
-        student23.setAnswer(question2, 4, 5); // Student 23 chooses 4 and 5
+        student23.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student23);
         
         Student student24 = new Student("0024");
-        student24.setAnswer(question2, 1, 3, 5); // Student 24 chooses 1, 3, and 5
+        student24.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student24);
         
         Student student25 = new Student("0025");
-        student25.setAnswer(question2, 1, 2, 4, 5); // Student 25 chooses 1, 2, 4, and 5
+        student25.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student25);
         
         Student student26 = new Student("0026");
-        student26.setAnswer(question2, 2, 5); // Student 26 chooses 2 and 5
+        student26.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student26);
         
         Student student27 = new Student("0027");
-        student27.setAnswer(question2, 3, 4); // Student 27 chooses 3 and 4
+        student27.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student27);
         
         Student student28 = new Student("0028");
-        student28.setAnswer(question2, 1, 2, 4); // Student 28 chooses 1, 2, and 4
+        student28.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student28);
         
         Student student29 = new Student("0029");
-        student29.setAnswer(question2, 3); // Student 29 chooses 3
+        student29.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student29);
         
         Student student30 = new Student("0030");
-        student30.setAnswer(question2, 4, 5); // Student 30 chooses 4 and 5
+        student30.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student30);
         
         Student student31 = new Student("0031");
-        student31.setAnswer(question2, 2, 3, 5); // Student 31 chooses 2, 3, and 5
+        student31.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student31);
         
         Student student32 = new Student("0032");
-        student32.setAnswer(question2, 1, 4); // Student 32 chooses 1 and 4
+        student32.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student32);
         
         Student student33 = new Student("0033");
-        student33.setAnswer(question2, 3, 5); // Student 33 chooses 3 and 5
+        student33.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student33);
         
         Student student34 = new Student("0034");
-        student34.setAnswer(question2, 4); // Student 34 chooses 4
+        student34.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student34);
         
         Student student35 = new Student("0035");
-        student35.setAnswer(question2, 2, 4); // Student 35 chooses 2 and 4
+        student35.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student35);
         
         Student student36 = new Student("0036");
-        student36.setAnswer(question2, 1, 5); // Student 36 chooses 1 and 5
+        student36.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student36);
         
         Student student37 = new Student("0037");
-        student37.setAnswer(question2, 3, 1, 4); // Student 37 chooses 3, 1, and 4
+        student37.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student37);
         
         Student student38 = new Student("0038");
-        student38.setAnswer(question2, 5, 2, 4); // Student 38 chooses 5, 2, and 4
+        student38.setAnswer(question2, generateRandomIntArray());
         coolAnimals.recordAnswer(student38);
         
+        Student student39 = new Student("0039");
+        student39.setAnswer(question2, generateRandomIntArray());
+        coolAnimals.recordAnswer(student39);
+        
+        Student student40 = new Student("0040");
+        student40.setAnswer(question2, generateRandomIntArray());
+        coolAnimals.recordAnswer(student40);
+        
+        // shows the stats for each answer
         coolAnimals.showStats();
     }
 }

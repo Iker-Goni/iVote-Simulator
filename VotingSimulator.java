@@ -5,18 +5,22 @@ public class VotingSimulator {
     public HashMap<String, ArrayList<Integer>> studentAnswers = new HashMap<>();
     public Question question;
     
+    // default constructor
     public VotingSimulator(Question question){
         this.question = question;
     }
 
+    // displays the question and choices 
     public void displayQuestion(){
         System.out.println(question);
     }
 
+    // records a students answer(s), stores in hashmap
     public void recordAnswer(Student student){
         studentAnswers.put(student.getID(), student.getAnswer());
     }
 
+    // shows the statistics of each question using frequency map
     public void showStats(){
         HashMap<Integer, Integer> frequencyMap = new HashMap<>();
 
